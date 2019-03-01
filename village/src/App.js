@@ -5,6 +5,7 @@ import { Route, NavLink } from "react-router-dom";
 import "./App.css";
 import SmurfForm from "./components/SmurfForm";
 import Smurfs from "./components/Smurfs";
+import SmurfUpdateForm from "./components/SmurfUpdateForm";
 
 class App extends Component {
   constructor(props) {
@@ -66,6 +67,26 @@ class App extends Component {
       });
   }
 
+  updateSmurf = (e, id, name, age, height) => {
+    e.preventDefault();
+    const smurf = {
+      id: id,
+      name: name,
+      age: age,
+      height: height
+    };
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, smurf)
+      .then(res => {
+        this.setState({
+          smurfs: res.data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   render() {
     const { smurfs } = this.state;
     return (
@@ -77,6 +98,9 @@ class App extends Component {
 
           <NavLink to="/smurf-form" activeClassName="activeNavBtn">
             Add a Smurf
+          </NavLink>
+          <NavLink to="/smurf-update-form" activeClassName="activeNavBtn">
+            Update a Smurf
           </NavLink>
         </div>
 
@@ -91,6 +115,17 @@ class App extends Component {
           path="/"
           render={props => (
             <Smurfs {...props} smurfs={smurfs} deleteSmurf={this.deleteSmurf} />
+          )}
+        />
+        <Route
+          exact
+          path="/smurf-update-form"
+          render={props => (
+            <SmurfUpdateForm
+              {...props}
+              updateSmurf={this.updateSmurf}
+              smurfs={smurfs}
+            />
           )}
         />
       </div>
