@@ -1,3 +1,69 @@
+html {
+  background-color: #006db083;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+}
+
+.navbar {
+  background-color: #006cb0;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar > a {
+  padding: 5px 20px;
+
+  margin: 5px;
+  background: #fff;
+  text-decoration: none;
+  color: #006cb0;
+}
+
+.navbar > .activeNavBtn {
+  color: #000;
+  background-color: #00d6d6;
+}
+
+/* Smurfs */
+.Smurfs > ul {
+  padding-left: 0px;
+}
+
+.Smurfs {
+  box-sizing: border-box;
+  background: white;
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 10px;
+  border: 5px solid #006cb0;
+}
+
+.Smurf {
+  background-color: rgb(39, 228, 228);
+  border: 1px solid #006cb0;
+  max-width: 300px;
+  padding: 10px;
+  margin: 5px auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  order: 1;
+}
+
+span {
+  width: 20px;
+  height: 20px;
+  background-color: #3f83ad;
+  border-radius: 50%;
+  cursor: pointer;
 }
