@@ -14,6 +14,7 @@ class App extends Component {
       smurfs: [],
       error: ""
     };
+    this.deleteSmurf = this.deleteSmurf.bind(this);
   }
 
   url = "http://localhost:3333/smurfs";
@@ -60,7 +61,10 @@ class App extends Component {
     axios
       .delete(`http://localhost:3333/smurfs/${id}`)
       .then(res => {
-        return res;
+        console.log(res);
+        this.setState({
+          smurfs: res.data
+        });
       })
       .catch(err => {
         console.log(err);

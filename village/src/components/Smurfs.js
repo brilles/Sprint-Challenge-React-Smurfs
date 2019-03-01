@@ -10,14 +10,22 @@ class Smurfs extends Component {
         <ul>
           {this.props.smurfs.map(smurf => {
             return (
-              <Smurf
-                deleteSmurf={this.props.deleteSmurf}
-                name={smurf.name}
-                id={smurf.id}
-                age={smurf.age}
-                height={smurf.height}
-                key={smurf.id}
-              />
+              <div className="container" key={smurf.id}>
+                <div>
+                  <div className="card">
+                    <span onClick={e => this.props.deleteSmurf(e, smurf.id)}>
+                      x
+                    </span>
+                  </div>
+                  <Smurf
+                    name={smurf.name}
+                    id={smurf.id}
+                    age={smurf.age}
+                    height={smurf.height}
+                    key={smurf.id}
+                  />
+                </div>
+              </div>
             );
           })}
         </ul>

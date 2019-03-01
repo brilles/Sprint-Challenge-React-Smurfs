@@ -38,6 +38,7 @@ class SmurfForm extends Component {
             placeholder="name"
             value={this.state.name}
             name="name"
+            required
           />
           <input
             type="number"
@@ -45,6 +46,7 @@ class SmurfForm extends Component {
             placeholder="age"
             value={this.state.age}
             name="age"
+            required
           />
           <input
             type="text"
@@ -52,6 +54,7 @@ class SmurfForm extends Component {
             placeholder="height"
             value={this.state.height}
             name="height"
+            required
           />
           <button type="submit">Add to the village</button>
         </form>
