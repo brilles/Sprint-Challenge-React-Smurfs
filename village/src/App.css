@@ -67,3 +67,29 @@ span {
   border-radius: 50%;
   cursor: pointer;
 }
+
+/* forms */
+
+form {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: 300px;
+  border: none;
+  padding: 3px;
+  margin: 2px;
+}
+
+button {
+  margin-top: 20px;
+  background-color: #3f83ad;
+  border: none;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
