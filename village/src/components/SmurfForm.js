@@ -15,7 +15,12 @@ class SmurfForm extends Component {
   };
 
   handleSubmit = e => {
-    this.props.addSmurf(e, this.state.name, this.state.age, this.state.height);
+    this.props.addSmurf(
+      e,
+      this.state.name,
+      parseInt(this.state.age),
+      this.state.height
+    );
     this.setState({
       name: "",
       age: "",
