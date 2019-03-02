@@ -1,27 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
 
-class SmurfForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      age: "",
-      height: ""
-    };
-  }
+export default class SmurfUpdateForm extends React.Component {
+  state = {
+    id: "",
+    name: "",
+    age: "",
+    height: ""
+  };
 
   handleInputChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = e => {
-    this.props.addSmurf(
+  handleSubmitUpdate = e => {
+    this.props.updateSmurf(
       e,
+      parseInt(this.state.id),
       this.state.name,
       parseInt(this.state.age),
       this.state.height
     );
     this.setState({
+      id: "",
       name: "",
       age: "",
       height: ""
@@ -31,14 +31,13 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmitUpdate}>
           <input
             type="text"
             onChange={this.handleInputChange}
             placeholder="name"
             value={this.state.name}
             name="name"
-            required
           />
           <input
             type="number"
@@ -46,7 +45,6 @@ class SmurfForm extends Component {
             placeholder="age"
             value={this.state.age}
             name="age"
-            required
           />
           <input
             type="text"
@@ -54,13 +52,17 @@ class SmurfForm extends Component {
             placeholder="height"
             value={this.state.height}
             name="height"
-            required
           />
-          <button type="submit">Add to the village</button>
+          <input
+            type="number"
+            name="id"
+            placeholder="ID"
+            value={this.state.id}
+            onChange={this.handleInputChange}
+          />
+          <button type="submit">Update Smurf</button>
         </form>
       </div>
     );
   }
 }
-
-export default SmurfForm;
